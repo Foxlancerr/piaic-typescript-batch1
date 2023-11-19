@@ -1,10 +1,12 @@
 "use strict";
 /**
+ * *******************************************************************
  * @Biggner
+ * *******************************************************************
  */
 /**
  *  @param {create an array and prints its contents.}
- *
+ * ********************************************************************
  * */
 const alphabits = ["a", "b", "c", "d", "e"];
 console.log(alphabits);
@@ -22,7 +24,7 @@ console.log(alphabits[alphabits.length - 1]);
 console.log(alphabits[alphabits.length - 2]);
 /**
  *  @param {Add element to an array}
- *
+ *************************************************************************
  * */
 // here are two build in functions which will add to elements to an array
 // 1 push: it will add element to the last of an array
@@ -35,7 +37,7 @@ num2.unshift(0);
 console.log(num2);
 /**
  *  @param {Remove element to an array}
- *
+ ********************************************************************************
  * */
 // there are two build in methods which can help to remove elements from an array
 // 1 pop: remove last element from an array
@@ -48,6 +50,7 @@ names.shift();
 console.log(names);
 /**
  *  @param {Sort element to an array}
+ * ***********************************************************************
  * */
 // sorted Numbers
 const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
@@ -62,6 +65,7 @@ fruit.sort((a, b) => a - b);
 console.log(fruit);
 /**
  *  @param {Loop an arrays}
+ * *********************************************************************
  * */
 // In JavaScript there are many types of Loops
 // 1 For loops
@@ -84,3 +88,36 @@ const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 days.forEach((index, value, currentArray) => {
     console.log(`the index ${index} having value is ${value} and iteration from the array ${currentArray}`);
 });
+// 5 while and Do-while loop
+/**
+ * *******************************************************************
+ * @Intermediate
+ * *******************************************************************
+ */
+/**
+ * @param { Use array methods such as indexOf(), lastIndexOf(), and slice(). }
+ * *******************************************************************
+ */
+// indexOf(): can take the value which we want to search but it starts searching from left to right
+const abc = ["a", "b", "c", "d", "z", "b", "k", "d"];
+console.log(abc.indexOf("d"));
+// lastIndexOf():can take the value which we want to search but it starts searching from last to first
+console.log(abc.lastIndexOf("d"));
+/**
+ * @param { Create a function that takes an array as an input and returns a new array with the elements in reverse order. }
+ * *******************************************************************
+ */
+// reverse(): its is build in function which will reverse the array;
+const array1 = [1, 2, 3, 4, 5, 6];
+console.log(array1);
+array1.reverse();
+console.log(array1);
+// function which will reverse the array
+const array2 = [1, 2, 3, 4, 5, 6];
+let reverseArr;
+function reverseArrayFunc(arr) {
+    reverseArr = arr.reverse();
+}
+reverseArrayFunc(array2);
+console.log(array2);
+console.log("reverse Array is:[" + reverseArr + "]");
