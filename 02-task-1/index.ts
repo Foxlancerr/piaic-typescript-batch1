@@ -56,3 +56,54 @@ console.log(names);
 // 2 shift: remove first element from an array
 names.shift();
 console.log(names);
+
+/**
+ *  @param {Sort element to an array}
+ * */
+
+// sorted Numbers
+const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
+fruit.sort();
+console.log(fruit);
+
+// the sort function also can take a callback function
+// decending order
+fruit.sort((a, b) => b - a);
+console.log(fruit);
+
+// Acending order
+fruit.sort((a, b) => a - b);
+console.log(fruit);
+
+/**
+ *  @param {Loop an arrays}
+ * */
+
+// In JavaScript there are many types of Loops
+// 1 For loops
+
+let age = [29, 45, 67, 35, 36, 64];
+
+for (let i = 0; i < age.length; i++) {
+  console.log(`index ${i} value is: ${age[i]}`);
+}
+
+// 2 for of: will print the values
+let month = ["Jan", "Feb", "Mar", "Apr", "May"];
+for (const i of month) {
+  console.log(i);
+}
+
+// 3 for in: will print the keys or Indexed values
+for (const i in month) {
+  console.log(i);
+}
+
+// 4 forEach: it will iterate the list and it will recieve a callback function having three parameters
+// function(index, value, currentArray)
+const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+days.forEach((index, value, currentArray) => {
+  console.log(
+    `the index ${index} having value is ${value} and iteration from the array ${currentArray}`
+  );
+});
