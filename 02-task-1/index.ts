@@ -134,6 +134,14 @@ console.log(abc.indexOf("d"));
 // lastIndexOf():can take the value which we want to search but it starts searching from last to first
 console.log(abc.lastIndexOf("d"));
 
+// slice(): methods can take 2 parameters (start index, last index) and it will mainly used when we delete the items d from the center of the array it will not update the original arrays
+// it will create a shallow copy of the array
+const items = ["book", "pen", "pencil", "marker"];
+let newItems = items.slice(0, 2);
+console.log(newItems);
+let newItems1 = items.slice(0, 2);
+console.log(newItems1);
+
 /**
  * @param { Create a function that takes an array as an input and returns a new array with the elements in reverse order. }
  * *******************************************************************
@@ -155,3 +163,35 @@ function reverseArrayFunc(arr: number[]) {
 
 reverseArrayFunc(array2);
 console.log("reverse Array is:[" + reverseArr + "]");
+
+/**
+ * @param { Write a program that finds the largest and smallest elements in an array. }
+ * *******************************************************************
+ */
+
+// Javascript have build in Maths module which have some build in methods for finding the largest and smallest elements
+
+let array3 = [45, 23, 60, 45, 84, 89, 90];
+
+// Math.min(): will find the smallest element of an arrays
+console.log(Math.min(...array3));
+
+// Math.min(): will find the smallest element of an arrays
+console.log(Math.max(...array3));
+
+/**
+ * @param { Create a function that checks if an array contains a specific element }
+ * *******************************************************************
+ */
+
+// the find methods is used to check if an array contains a specific element or not
+
+const names2 = ["sudais", "kamran", "mustafa"];
+let result;
+function findValues(arr: string[], str: string) {
+  result = names.includes(str);
+}
+
+findValues(names2, "kamran");
+findValues(names2, "zafar");
+console.log(result);
