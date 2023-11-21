@@ -8,7 +8,8 @@
  *  @param {create an array and prints its contents.}
  * ********************************************************************
  * */
-const alphabits = ["a", "b", "c", "d", "e"];
+
+const alphabits: string[] = ["a", "b", "c", "d", "e"];
 console.log(alphabits);
 
 // we can access the array each value by its index and the index start from 0
@@ -51,7 +52,7 @@ console.log(num2);
 // there are two build in methods which can help to remove elements from an array
 
 // 1 pop: remove last element from an array
-const names = ["ahmad", "sudais", "kamran", "akram"];
+const names: string[] = ["ahmad", "sudais", "kamran", "akram"];
 console.log(names);
 names.pop();
 console.log(names);
@@ -66,17 +67,17 @@ console.log(names);
  * */
 
 // sorted Numbers
-const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
+const fruit: number[] = [8, 2, 6, 3, 1, 7, 5, 4];
 fruit.sort();
 console.log(fruit);
 
 // the sort function also can take a callback function
 // decending order
-fruit.sort((a, b) => b - a);
+fruit.sort((a: number, b: number) => b - a);
 console.log(fruit);
 
 // Acending order
-fruit.sort((a, b) => a - b);
+fruit.sort((a: number, b: number) => a - b);
 console.log(fruit);
 
 /**
@@ -87,14 +88,14 @@ console.log(fruit);
 // In JavaScript there are many types of Loops
 // 1 For loops
 
-let age = [29, 45, 67, 35, 36, 64];
+let age: number[] = [29, 45, 67, 35, 36, 64];
 
 for (let i = 0; i < age.length; i++) {
   console.log(`index ${i} value is: ${age[i]}`);
 }
 
 // 2 for of: will print the values
-let month = ["Jan", "Feb", "Mar", "Apr", "May"];
+let month: string[] = ["Jan", "Feb", "Mar", "Apr", "May"];
 for (const i of month) {
   console.log(i);
 }
@@ -106,7 +107,7 @@ for (const i in month) {
 
 // 4 forEach: it will iterate the list and it will recieve a callback function having three parameters
 // function(index, value, currentArray)
-const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+const days: string[] = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
 days.forEach((index, value, currentArray) => {
   console.log(
     `the index ${index} having value is ${value} and iteration from the array ${currentArray}`
@@ -128,7 +129,7 @@ days.forEach((index, value, currentArray) => {
 
 // indexOf(): can take the value which we want to search but it starts searching from left to right
 
-const abc = ["a", "b", "c", "d", "z", "b", "k", "d"];
+const abc: string[] = ["a", "b", "c", "d", "z", "b", "k", "d"];
 console.log(abc.indexOf("d"));
 
 // lastIndexOf():can take the value which we want to search but it starts searching from last to first
@@ -136,10 +137,10 @@ console.log(abc.lastIndexOf("d"));
 
 // slice(): methods can take 2 parameters (start index, last index) and it will mainly used when we delete the items d from the center of the array it will not update the original arrays
 // it will create a shallow copy of the array
-const items = ["book", "pen", "pencil", "marker"];
+const items: string[] = ["book", "pen", "pencil", "marker"];
 let newItems = items.slice(0, 2);
 console.log(newItems);
-let newItems1 = items.slice(0, 2);
+let newItems1 = items.slice(2, 1);
 console.log(newItems1);
 
 /**
@@ -148,13 +149,13 @@ console.log(newItems1);
  */
 
 // reverse(): its is build in function which will reverse the array;
-const array1 = [1, 2, 3, 4, 5, 6];
+const array1: number[] = [1, 2, 3, 4, 5, 6];
 console.log(array1);
 array1.reverse();
 console.log(array1);
 
 // function which will reverse the array
-const array2 = [1, 2, 3, 4, 5, 6];
+const array2: number[] = [1, 2, 3, 4, 5, 6];
 
 let reverseArr;
 function reverseArrayFunc(arr: number[]) {
@@ -171,7 +172,7 @@ console.log("reverse Array is:[" + reverseArr + "]");
 
 // Javascript have build in Maths module which have some build in methods for finding the largest and smallest elements
 
-let array3 = [45, 23, 60, 45, 84, 89, 90];
+let array3: number[] = [45, 23, 60, 45, 84, 89, 90];
 
 // Math.min(): will find the smallest element of an arrays
 console.log(Math.min(...array3));
@@ -186,12 +187,13 @@ console.log(Math.max(...array3));
 
 // the find methods is used to check if an array contains a specific element or not
 
-const names2 = ["sudais", "kamran", "mustafa"];
-let result;
-function findValues(arr: string[], str: string) {
-  result = names.includes(str);
+const names2: string[] = ["sudais", "kamran", "mustafa"];
+
+function findValues(arr: string[], str: string):boolean {
+  return arr.includes(str);
 }
 
-findValues(names2, "kamran");
-findValues(names2, "zafar");
-console.log(result);
+const result1 = findValues(names2, "kamran");
+const result2 = findValues(names2, "zafar");
+console.log(result1);
+console.log(result2);

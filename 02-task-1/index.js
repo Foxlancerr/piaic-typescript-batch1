@@ -108,7 +108,7 @@ console.log(abc.lastIndexOf("d"));
 const items = ["book", "pen", "pencil", "marker"];
 let newItems = items.slice(0, 2);
 console.log(newItems);
-let newItems1 = items.slice(0, 2);
+let newItems1 = items.slice(2, 1);
 console.log(newItems1);
 /**
  * @param { Create a function that takes an array as an input and returns a new array with the elements in reverse order. }
@@ -143,9 +143,10 @@ console.log(Math.max(...array3));
  */
 // the find methods is used to check if an array contains a specific element or not
 const names2 = ["sudais", "kamran", "mustafa"];
-let result;
 function findValues(arr, str) {
-    result = names.includes(str);
+    return arr.includes(str);
 }
-findValues(names2, "kamr");
-console.log(result);
+const result1 = findValues(names2, "kamran");
+const result2 = findValues(names2, "zafar");
+console.log(result1);
+console.log(result2);
