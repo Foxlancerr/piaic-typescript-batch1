@@ -68,8 +68,8 @@ console.log(names);
 
 // sorted Numbers
 const fruit: number[] = [8, 2, 6, 3, 1, 7, 5, 4];
-fruit.sort();
-console.log(fruit);
+// fruit.sort();
+console.log(fruit[fruit.length - 1]);
 
 // the sort function also can take a callback function
 // decending order
@@ -79,6 +79,7 @@ console.log(fruit);
 // Acending order
 fruit.sort((a: number, b: number) => a - b);
 console.log(fruit);
+
 
 /**
  *  @param {Loop an arrays}
