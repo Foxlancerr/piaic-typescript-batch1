@@ -3,13 +3,14 @@
  */
 var guestList;
 guestList = ["kamran", "sudais", "abuzar"];
+// not available guest names are
 var guestNotAvailable = "sudais";
+console.log("Due to some Personal Issue, " + guestNotAvailable + " guest not available");
 var indexOfGuestNotAvailable = guestList.indexOf(guestNotAvailable);
-console.log(indexOfGuestNotAvailable);
+// check if the guest is available or not
 if (indexOfGuestNotAvailable !== -1) {
-    guestList.splice(indexOfGuestNotAvailable, 1);
+    guestList[indexOfGuestNotAvailable] = "imran";
 }
-guestList.push("imran");
 for (var _i = 0, guestList_1 = guestList; _i < guestList_1.length; _i++) {
     var guest = guestList_1[_i];
     var inviteMsg = "Dear ".concat(guest, ", You are invited to jion this event");
