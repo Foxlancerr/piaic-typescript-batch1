@@ -21,6 +21,7 @@ let rank = [8, 9, 3, 7];
 
 // on passing negative index, counting starts from back
 rank.fill(100, -2);
+console.log(rank)
 // Since fill() is a mutator method, it changes the array itself (not a copy) and returns it.
 
 /**
@@ -63,6 +64,7 @@ const num1 = [5, 10, 15];
 for (let i = 0; i < num1.length; i++) {
   value += num1[i];
 }
+console.log(value);
 
 // with the help of reducers
 /* this is our initial value i.e. the starting point*/
@@ -79,6 +81,7 @@ const reducer = (accumulator: number, item: number) => {
 /* we give the reduce method our reducer function
   and our initial value */
 const total = num2.reduce(reducer, initialValue);
+console.log(total)
 
 // Flattening an Array Using reducer
 const numArray = [1, 2, [3, 10, [11, 12]], [1, 2, [3, 4]], 5, 6];
@@ -94,6 +97,8 @@ function flattenArray(data: any) {
     return total.concat(Array.isArray(value) ? flattenArray(value) : value);
   }, initialValue);
 }
+
+console.log(flattenArray(numArray))
 
 /**
  *  @param {differaite between reduce and reduceright}
@@ -147,5 +152,6 @@ const ageArray = [34, 23, 20, 26, 12];
 //checks if all the array elements
 // pass the checkAdult() function
 let check = ageArray.every(checkAdult);
+console.log(check);
 
 // Output: false

@@ -1,61 +1,32 @@
 "use strict";
 /**
- * *******************************************************************
- * @Biggner
- * *******************************************************************
- */
-/**
- *  @param {create an array and prints its contents.}
- * ********************************************************************
+ *  @param {Fill array method}
+ * ***********************************************************************
  * */
-const alphabits = ["a", "b", "c", "d", "e"];
-console.log(alphabits);
-// we can access the array each value by its index and the index start from 0
-// 1st index value
-console.log(alphabits[0]);
-// 2nd index value
-console.log(alphabits[1]);
-// 3rd index value
-console.log(alphabits[2]);
-// if we want to print the value from last index so we can used -ive sign to do that
-// last index value
-console.log(alphabits[alphabits.length - 1]);
-// 2nd last index value
-console.log(alphabits[alphabits.length - 2]);
+// The fill() method returns an array by filling all elements with a specified value.
+// arr.fill(value, startIndex, endIndex)
+// defining an array
+var fruits = ["Apple", "Banana", "Grape"];
+``;
+// filling every element of the array with 'Cherry'
+fruits.fill("Cherry");
+console.log(fruits);
+// Output:
+// [ 'Cherry', 'Cherry', 'Cherry' ]
+// If start or end is negative, indexes are counted backwards.
+let rank = [8, 9, 3, 7];
+// on passing negative index, counting starts from back
+rank.fill(100, -2);
+console.log(rank);
+// Since fill() is a mutator method, it changes the array itself (not a copy) and returns it.
 /**
- *  @param {Add element to an array}
- *************************************************************************
- * */
-// here are two build in functions which will add to elements to an array
-// 1 push: it will add element to the last of an array
-let num2 = [1, 2, 3];
-console.log(num2);
-num2.push(4);
-console.log(num2);
-// 2 unshift: it will add element to the first of an array
-num2.unshift(0);
-console.log(num2);
-/**
- *  @param {Remove element to an array}
- ********************************************************************************
- * */
-// there are two build in methods which can help to remove elements from an array
-// 1 pop: remove last element from an array
-const names = ["ahmad", "sudais", "kamran", "akram"];
-console.log(names);
-names.pop();
-console.log(names);
-// 2 shift: remove first element from an array
-names.shift();
-console.log(names);
-/**
- *  @param {Sort element to an array}
+ *  @param {Sort array method}
  * ***********************************************************************
  * */
 // sorted Numbers
 const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
 fruit.sort();
-console.log(fruit);
+// console.log(fruit[fruit.length - 1]);
 // the sort function also can take a callback function
 // decending order
 fruit.sort((a, b) => b - a);
@@ -64,89 +35,92 @@ console.log(fruit);
 fruit.sort((a, b) => a - b);
 console.log(fruit);
 /**
- *  @param {Loop an arrays}
- * *********************************************************************
+ *  @param {Reduce arrays methods}
+ * ***********************************************************************
  * */
-// In JavaScript there are many types of Loops
-// 1 For loops
-let age = [29, 45, 67, 35, 36, 64];
-for (let i = 0; i < age.length; i++) {
-    console.log(`index ${i} value is: ${age[i]}`);
+// The reduce() method executes a reducer function on each element of the array and returns a single output value.
+// arr.reduce(callback(accumulator, currentValue), initialValue)
+// Reduce comes with some terminology such as reducer & accumulator.
+// The accumulator is the value that we end with
+// and the reducer is what action we will perform in order to get to one value.
+// You must remember that a reducer will only return one value and one value only hence the name reduce.
+// old way to add a numbers
+let value = 0;
+const num1 = [5, 10, 15];
+for (let i = 0; i < num1.length; i++) {
+    value += num1[i];
 }
-// 2 for of: will print the values
-let month = ["Jan", "Feb", "Mar", "Apr", "May"];
-for (const i of month) {
-    console.log(i);
+console.log(value);
+// with the help of reducers
+/* this is our initial value i.e. the starting point*/
+const initialValue = 0;
+/* numbers array */
+const num2 = [5, 10, 15];
+/* reducer method that takes in the accumulator and next item */
+const reducer = (accumulator, item) => {
+    return accumulator + item;
+};
+/* we give the reduce method our reducer function
+  and our initial value */
+const total = num2.reduce(reducer, initialValue);
+console.log(total);
+// Flattening an Array Using reducer
+const numArray = [1, 2, [3, 10, [11, 12]], [1, 2, [3, 4]], 5, 6];
+function flattenArray(data) {
+    // our initial value this time is a blank array
+    let initialValue = [];
+    // call reduce on our data
+    return data.reduce((total, value) => {
+        // if the value is an array then recursively call reduce
+        // if the value is not an array then just concat our value
+        return total.concat(Array.isArray(value) ? flattenArray(value) : value);
+    }, initialValue);
 }
-// 3 for in: will print the keys or Indexed values
-for (const i in month) {
-    console.log(i);
+console.log(flattenArray(numArray));
+/**
+ *  @param {differaite between reduce and reduceright}
+ *
+ * The order for reduce is from left to right,
+ * and it's from right to left for reduceRight
+ * ***********************************************************************
+ * */
+let arr = ["A", "B", "C", "D", "E"];
+console.log(arr.reduce((previous, current) => previous + current));
+console.log(arr.reduceRight((previous, current) => previous + current));
+/**
+ *  @param {Some arrays methods}
+ * ***********************************************************************
+ * */
+// The some() method tests whether any of the array elements pass the given test function.
+// arr.some(callback(currentValue))
+// returns boolean
+// array of scores obtained by student
+let scoreObtained = [45, 50, 39, 78, 65, 20];
+// a test function: returns score less than 40
+function studentIsPassed(score) {
+    return score < 40;
 }
-// 4 forEach: it will iterate the list and it will recieve a callback function having three parameters
-// function(index, value, currentArray)
-const days = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
-days.forEach((index, value, currentArray) => {
-    console.log(`the index ${index} having value is ${value} and iteration from the array ${currentArray}`);
-});
-// 5 while and Do-while loop
-/**
- * *******************************************************************
- * @Intermediate
- * *******************************************************************
- */
-/**
- * @param { Use array methods such as indexOf(), lastIndexOf(), and slice(). }
- * *******************************************************************
- */
-// indexOf(): can take the value which we want to search but it starts searching from left to right
-const abc = ["a", "b", "c", "d", "z", "b", "k", "d"];
-console.log(abc.indexOf("d"));
-// lastIndexOf():can take the value which we want to search but it starts searching from last to first
-console.log(abc.lastIndexOf("d"));
-// slice(): methods can take 2 parameters (start index, last index) and it will mainly used when we delete the items d from the center of the array it will not update the original arrays
-// it will create a shallow copy of the array
-const items = ["book", "pen", "pencil", "marker"];
-let newItems = items.slice(0, 2);
-console.log(newItems);
-let newItems1 = items.slice(2, 1);
-console.log(newItems1);
-/**
- * @param { Create a function that takes an array as an input and returns a new array with the elements in reverse order. }
- * *******************************************************************
- */
-// reverse(): its is build in function which will reverse the array;
-const array1 = [1, 2, 3, 4, 5, 6];
-console.log(array1);
-array1.reverse();
-console.log(array1);
-// function which will reverse the array
-const array2 = [1, 2, 3, 4, 5, 6];
-let reverseArr;
-function reverseArrayFunc(arr) {
-    reverseArr = arr.reverse();
+// checks if score of at least one student is less than 40
+if (scoreObtained.some(studentIsPassed) == true) {
+    console.log("At least one of the students failed.");
 }
-reverseArrayFunc(array2);
-console.log("reverse Array is:[" + reverseArr + "]");
+else
+    console.log("All students are passed.");
 /**
- * @param { Write a program that finds the largest and smallest elements in an array. }
- * *******************************************************************
- */
-// Javascript have build in Maths module which have some build in methods for finding the largest and smallest elements
-let array3 = [45, 23, 60, 45, 84, 89, 90];
-// Math.min(): will find the smallest element of an arrays
-console.log(Math.min(...array3));
-// Math.min(): will find the smallest element of an arrays
-console.log(Math.max(...array3));
-/**
- * @param { Create a function that checks if an array contains a specific element }
- * *******************************************************************
- */
-// the find methods is used to check if an array contains a specific element or not
-const names2 = ["sudais", "kamran", "mustafa"];
-function findValues(arr, str) {
-    return arr.includes(str);
+ *  @param {Every arrays methods}
+ * ***********************************************************************
+ * */
+// The every() method checks if all the array elements pass the given test function.
+// arr.some(callback(currentValue))
+// returns boolean
+// function that checks whether
+// the age is 18 or above
+function checkAdult(age) {
+    return age >= 18;
 }
-const result1 = findValues(names2, "kamran");
-const result2 = findValues(names2, "zafar");
-console.log(result1);
-console.log(result2);
+const ageArray = [34, 23, 20, 26, 43];
+//checks if all the array elements
+// pass the checkAdult() function
+let check = ageArray.every(checkAdult);
+console.log(check);
+// Output: false
