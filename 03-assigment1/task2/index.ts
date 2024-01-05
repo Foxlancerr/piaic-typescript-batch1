@@ -11,12 +11,18 @@ console.log("world".charAt(0));
 
 // subString will return the new string / split the string and return it.
 // and it will take two arguments substrings(start index, End index)
-console.log("how are you".substring(0,2));
+console.log("how are you".substring(0, 2));
 
-function toTitleCase(str:string){
-    const string = str.split(" ").map(i => i[0].toUpperCase() + i.substring(1).toLowerCase()).join(" ")
-    return string;
+function toTitleCase(str: string) {
+  const strin = str
+    .split(" ")
+    .map((i) => i[0].toUpperCase() + i.substring(1).toLowerCase())
+    .join(" ");
+  return strin;
 }
 
-const toTitle = toTitleCase("hello this is pakistan")
+const toTitle = toTitleCase("lhlo this is pakistane");
 console.log(toTitle);
+
+
+

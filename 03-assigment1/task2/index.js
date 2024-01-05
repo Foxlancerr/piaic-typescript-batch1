@@ -10,8 +10,15 @@ console.log("world".charAt(0));
 // and it will take two arguments substrings(start index, End index)
 console.log("how are you".substring(0, 2));
 function toTitleCase(str) {
-    var string = str.split(" ").map(function (i) { return i[0].toUpperCase() + i.substring(1).toLowerCase(); }).join(" ");
+    var string = str
+        .split(" ")
+        .map(function (i) { return i[0].toUpperCase() + i.substring(1).toLowerCase(); })
+        .join(" ");
     return string;
 }
 var toTitle = toTitleCase("hello this is pakistan");
 console.log(toTitle);
+var letter = "ahmad";
+letter.split(",").forEach(function (val, index) {
+    console.log(val, index);
+});
