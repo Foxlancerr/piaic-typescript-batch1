@@ -1,4 +1,29 @@
 /**
+ *  @param {Fill array method}
+ * ***********************************************************************
+ * */
+// The fill() method returns an array by filling all elements with a specified value.
+// arr.fill(value, startIndex, endIndex)
+
+// defining an array
+var fruits = ["Apple", "Banana", "Grape"];
+``
+// filling every element of the array with 'Cherry'
+fruits.fill("Cherry");
+
+console.log(fruits);
+
+// Output:
+// [ 'Cherry', 'Cherry', 'Cherry' ]
+
+// If start or end is negative, indexes are counted backwards.
+let rank = [8, 9, 3, 7];
+
+// on passing negative index, counting starts from back
+rank.fill(100, -2);
+// Since fill() is a mutator method, it changes the array itself (not a copy) and returns it.
+
+/**
  *  @param {Sort array method}
  * ***********************************************************************
  * */
@@ -71,6 +96,18 @@ function flattenArray(data: any) {
 }
 
 /**
+ *  @param {differaite between reduce and reduceright}
+ * 
+ * The order for reduce is from left to right,
+ * and it's from right to left for reduceRight
+ * ***********************************************************************
+ * */
+let arr = ["A", "B", "C", "D", "E"];
+
+console.log(arr.reduce((previous, current) => previous + current));
+console.log(arr.reduceRight((previous, current) => previous + current));
+
+/**
  *  @param {Some arrays methods}
  * ***********************************************************************
  * */
@@ -99,10 +136,9 @@ if (scoreObtained.some(studentIsPassed) == true) {
 // arr.some(callback(currentValue))
 // returns boolean
 
-
 // function that checks whether
 // the age is 18 or above
-function checkAdult(age:number) {
+function checkAdult(age: number) {
   return age >= 18;
 }
 
