@@ -118,7 +118,7 @@ else
 function checkAdult(age) {
     return age >= 18;
 }
-const ageArray = [34, 23, 20, 26, 43];
+const ageArray = [34, 23, 20, 26, 12];
 //checks if all the array elements
 // pass the checkAdult() function
 let check = ageArray.every(checkAdult);
