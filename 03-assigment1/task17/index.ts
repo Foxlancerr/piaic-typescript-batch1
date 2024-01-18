@@ -55,9 +55,9 @@ console.log(
 
 // console.log(guestList.length);
 
-let i = 0;
+let i:number = 0;
 while (i <= guestList.length - 3) {
-  let removeGuest = guestList.pop();
+  let removeGuest:string | undefined = guestList.pop();
   console.log(
     `you’re sorry Mr.s ${removeGuest} you can’t invite them to dinner`
   );
