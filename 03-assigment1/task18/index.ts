@@ -38,6 +38,6 @@ console.log(cities);
 shallowCopy.sort();
 console.log(shallowCopy);
 console.log(cities);
-shallowCopy.sort((a: string, b: string) => b.localeCompare(a));
+shallowCopy.sort((a: string, b: string) => a.localeCompare(b));
 console.log(shallowCopy);
 console.log(cities);
