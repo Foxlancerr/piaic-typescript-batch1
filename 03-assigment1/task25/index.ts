@@ -9,12 +9,8 @@
 let aliensColor = "green";
 if (aliensColor === "green") {
   console.log("You just recieved a 5 points");
-} else {
-  console.log("you just failed");
 }
 
-if (aliensColor === "red") {
-  console.log("You just recieved a 5 points");
-} else {
-  console.log("you just failed");
-}
+if (aliensColor !== "red") {
+  console.log("You Failed");
+} 
