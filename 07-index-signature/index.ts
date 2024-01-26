@@ -107,7 +107,7 @@ function logStudent(student: Student2, key: keyof Student2): void {
 
 // it will allow that
 type literal = "stream1" | "stream2" | "stream3";
-type Stream1 = Record<literal, string>;
+type Stream1 = Record<literal, string>; // Record is reserved words and takes two arguments (key, value)
 
 const streaming1: Stream1 = {
   stream1: "data1",
