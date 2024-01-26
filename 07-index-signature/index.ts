@@ -84,9 +84,40 @@ let student2: Student2 = {
 // used Keyof and iterate over an objects
 
 for (let stu in student2) {
-  console.log(stu as keyof Student2); // name age marks
-  console.log(stu + ":" + student2[stu as keyof Student2]); // issue is fixed and the keyof will make the union of all the Objects keys
+  // console.log(stu as keyof Student2); // name age marks
+  // console.log(stu + ":" + student2[stu as keyof Student2]); // issue is fixed and the keyof will make the union of all the Objects keys
 }
+
+Object.keys(student2).map((key) => {
+  // console.log(student2[key as keyof typeof student2]);
+});
+
+// function and keyof
+function logStudent(student: Student2, key: keyof Student2): void {
+  console.log(`${key} : ${student[key]}`);
+}
+
+// logStudent(student2, "marks");
+
+// suppose we want that our index signature is literal type and having fixed values instead we used interface, should use type
+
+// interface Stream1{
+//   [key: "stream1" | "stream2"]: string // it will not allow that
+// }
+
+// it will allow that
+type literal = "stream1" | "stream2" | "stream3";
+type Stream1 = Record<literal, string>;
+
+const streaming1: Stream1 = {
+  stream1: "data1",
+  stream2: "data2",
+  stream3: "data3",
+  // stream4: "data4" //not allowed we can fixed it
+};
+
+console.log(streaming1.stream1);
+
 //Generics
 
 interface StuBox<Type> {

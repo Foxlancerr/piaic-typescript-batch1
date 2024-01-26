@@ -36,9 +36,23 @@ let student2 = {
 // }
 // used Keyof and iterate over an objects
 for (let stu in student2) {
-    console.log(stu);
+    // console.log(stu as keyof Student2); // name age marks
     // console.log(stu + ":" + student2[stu as keyof Student2]); // issue is fixed and the keyof will make the union of all the Objects keys
 }
+Object.keys(student2).map((key) => {
+    // console.log(student2[key as keyof typeof student2]);
+});
+// function and keyof
+function logStudent(student, key) {
+    console.log(`${key} : ${student[key]}`);
+}
+const streaming1 = {
+    stream1: "data1",
+    stream2: "data2",
+    stream3: "data3",
+    // stream4: "data4" //not allowed we can fixed it
+};
+console.log(streaming1.stream1);
 let student0 = {
     name: "kamran",
     // name: 44 // not allowed
