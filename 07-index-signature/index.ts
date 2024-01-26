@@ -118,17 +118,7 @@ const streaming1: Stream1 = {
 
 console.log(streaming1.stream1);
 
-//Generics
-
-interface StuBox<Type> {
-  readonly name: Type; // it will allow that read the data only not modify it
+// note: we can stricly mention is keyof else it will show error. this is its fault.
+for (let streamData in streaming1) {
+  console.log(streamData + ":" + streaming1[streamData as keyof Stream1]);
 }
-
-let student0: StuBox<string> = {
-  name: "kamran",
-  // name: 44 // not allowed
-};
-
-// student0.name = "sudais"
-
-// console.log(student0.name);

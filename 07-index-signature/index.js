@@ -53,9 +53,7 @@ const streaming1 = {
     // stream4: "data4" //not allowed we can fixed it
 };
 console.log(streaming1.stream1);
-let student0 = {
-    name: "kamran",
-    // name: 44 // not allowed
-};
-// student0.name = "sudais"
-// console.log(student0.name);
+// note: we can stricly mention is keyof else it will show error. this is its fault.
+for (let streamData in streaming1) {
+    console.log(streamData + ":" + streaming1[streamData]);
+}
