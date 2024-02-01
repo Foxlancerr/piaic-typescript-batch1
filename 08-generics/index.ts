@@ -197,3 +197,42 @@ const allDataOutput2: AllDataOutput1 = (arr) => {
 
 // allDataOutput1(marks1);
 // allDataOutput2(marks1);
+
+// fetch data from json placholder website
+// https://jsonplaceholder.typicode.com/users
+
+// interface JsonDataOutput {
+//   <T>(url: string): Promise<null | T>;
+// }
+// const fetchData: <T>(url: T) => Promise<T | null> = (url) => {
+//   return new Promise();
+//   // return 4
+// };
+
+// fetchData("https://jsonplaceholder.typicode.com/users");
+
+interface JsonDataOutput {
+  <T>(url: string): Promise<null | T>;
+}
+
+const fetchData1: JsonDataOutput = <T>(url: string): Promise<null | T> => {
+  return fetch(url)
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error(`Failed to fetch data from ${url}`);
+      }
+      return response.json() as Promise<T>;
+    })
+    .catch((error) => {
+      console.error(error);
+      return null;
+    });
+};
+
+fetchData1<{ name: string }[]>(
+  "https://jsonplaceholder.typicode.com/users"
+).then((data) => {
+  if (data) {
+    console.log(data);
+  }
+});

@@ -71,5 +71,21 @@ const allDataOutput2 = (arr) => {
         console.log(el);
     });
 };
-// allDataOutput1(marks1);
-// allDataOutput2(marks1);
+const fetchData1 = (url) => {
+    return fetch(url)
+        .then((response) => {
+        if (!response.ok) {
+            throw new Error(`Failed to fetch data from ${url}`);
+        }
+        return response.json();
+    })
+        .catch((error) => {
+        console.error(error);
+        return null;
+    });
+};
+fetchData1("https://jsonplaceholder.typicode.com/users").then((data) => {
+    if (data) {
+        console.log(data);
+    }
+});
