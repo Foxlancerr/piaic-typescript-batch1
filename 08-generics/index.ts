@@ -236,3 +236,6 @@ fetchData1<{ name: string }[]>(
     console.log(data);
   }
 });
+
+
+
