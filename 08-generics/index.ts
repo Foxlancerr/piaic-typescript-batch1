@@ -87,13 +87,13 @@ function identity1<Type>(arg: Type): Type {
 
 // way1
 let myIdentity1: <Type>(arg: Type) => Type = identity1;
-console.log(myIdentity1("hii"));
-console.log(typeof myIdentity1);
+// console.log(myIdentity1("hii"));
+// console.log(typeof myIdentity1);
 
 // way2
 let myIdentity2: { <Type>(arg: Type): Type } = identity1;
-console.log(myIdentity2("hii"));
-console.log(typeof myIdentity2);
+// console.log(myIdentity2("hii"));
+// console.log(typeof myIdentity2);
 
 // how i will assign generics for interface interfaces
 
@@ -133,3 +133,67 @@ interface GenericIdentityFn<Type> {
 //   console.log(voice);
 // };
 // dog1.bark("woo woo");
+
+// Conditional types generics
+type Animal1Type<T> = T extends string ? true : false;
+
+type Example1Type = Animal1Type<"hello world">;
+type Example2Type = Animal1Type<67>;
+
+// templates literals types
+type URL1 = `http://${string}.com`;
+const url: URL1 = "http://hello.com";
+// const url:URL1 =45 // not allowed
+
+//Messanger interface
+// in this we can remove the optional and used only those which is required
+interface Messenger {
+  sendText: () => void;
+  sendFile: () => void;
+  checkStatus?: () => void; // if i will make this optional check the messangerFeatures2 varaibles it show error
+}
+
+type RequiredFields<T> = {
+  [K in keyof T as T[K] extends Required<T>[K] ? K : never]: T[K]; // here the require is used
+};
+
+type RequiredMessengerProperties = RequiredFields<Messenger>;
+
+type FeatureOptions<T> = {
+  [K in keyof T as `is${Capitalize<K & string>}Enabled`]: boolean;
+};
+
+type FeatureFlags = FeatureOptions<RequiredMessengerProperties>;
+
+// Example usage:
+const messengerFeatures1: FeatureFlags = {
+  isSendTextEnabled: false,
+  isSendFileEnabled: false,
+};
+
+const messengerFeatures2: FeatureFlags = {
+  isSendTextEnabled: true,
+  isSendFileEnabled: false,
+  // isCheckStatusEnabled: false,// show eror
+};
+
+// array elements generics
+
+let marks1 = [34, 45, 23, 78, 78];
+
+interface AllDataOutput1 {
+  <T>(arr: T[]): void;
+}
+function allDataOutput1<T>(arr: T[]): void {
+  arr.forEach((el) => {
+    console.log(el);
+  });
+}
+const allDataOutput2: AllDataOutput1 = (arr) => {
+  arr.forEach((el) => {
+    console.log(el);
+  });
+};
+
+// allDataOutput1(marks1);
+// allDataOutput2(marks1);
