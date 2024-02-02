@@ -2,7 +2,7 @@
 
 // 1. **Generic Data Structure**:
 //    Define a generic data structure that allows storing elements of any type and provides methods to add, remove, and retrieve elements.
-
+/** 
 class Stack1<T> {
   private items: T[];
   constructor() {
@@ -84,12 +84,71 @@ str2.push("kamran");
 console.log(str2.size());
 console.log(str2.isEmpty());
 
-
+**/
 // 2. **Promise Chain**:
 //    Implement a function that makes multiple asynchronous calls using promises and returns the result of each call as an array.
 
+/**
+ * 
+
+const multiplePromises = (urls: string[]): Promise<any[]> => {
+  let promises = urls.map((url) => fetch(url));
+
+  return Promise.all(promises)
+    .then((responces) => {
+      return Promise.all(responces.map((responce) => responce.json()));
+    })
+    .then((data) => data);
+};
+
+multiplePromises([
+  "https://jsonplaceholder.typicode.com/users",
+  "https://jsonplaceholder.typicode.com/users",
+]).then(([res1, res2]) => {
+  console.log(res1);
+  console.log(
+    "------------------------------------------------------------------"
+  );
+  console.log(res2);
+});
+//async wait handling
+// async function getData() {
+//   const [res1, res2] = await multiplePromises([
+//     "https://jsonplaceholder.typicode.com/users",
+//     "https://jsonplaceholder.typicode.com/users",
+//   ]);
+//   console.log(res1);
+//   console.log(
+//     "------------------------------------------------------------------"
+//   );
+//   console.log(res2);
+// }
+// getData();
+
+**/
+
+
 // 3. **Type-safe Fetch**:
 //    Create a wrapper around the `fetch` API that ensures type safety for request parameters and response data.
+interface RequestParamsInterface{
+  method: string;
+  url: string;
+  body?:any;
+  headers?: Record<string, string>;
+}
+
+interface ResponceDataInterface{
+  userId:string
+  title:string
+  id:number
+  completed:boolean
+}
+
+const fetchWrapper = () =>{
+
+}
+
+fetchWrapper<ResponceDataInterface>()
 
 // 4. **Async Iterator**:
 //    Develop an asynchronous iterator that asynchronously fetches data from a remote source in chunks and iterates over the fetched data.
