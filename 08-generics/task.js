@@ -1,8 +1,28 @@
 "use strict";
 // Sure, here are ten advanced TypeScript questions focusing on generics, promises, asynchronous programming, and object-oriented programming:
-const fetchWrapper = () => {
+const fetchWrapper = (params) => {
+    // console.log(params);
+    return fetch(params.url, {
+        method: "GET",
+    })
+        .then((res) => {
+        return res.json();
+    })
+        .catch((err) => {
+        console.error(err.message);
+    });
 };
-fetchWrapper();
+const requestParams = {
+    method: "GET",
+    url: "https://jsonplaceholder.typicode.com/todos/1",
+};
+fetchWrapper(requestParams)
+    .then((data) => {
+    console.log(data);
+})
+    .catch((err) => {
+    console.log(err.message);
+});
 // 4. **Async Iterator**:
 //    Develop an asynchronous iterator that asynchronously fetches data from a remote source in chunks and iterates over the fetched data.
 // 5. **Decorator Pattern**:

@@ -127,28 +127,46 @@ multiplePromises([
 
 **/
 
-
 // 3. **Type-safe Fetch**:
 //    Create a wrapper around the `fetch` API that ensures type safety for request parameters and response data.
-interface RequestParamsInterface{
+interface RequestParamsInterface {
   method: string;
   url: string;
-  body?:any;
+  body?: any;
   headers?: Record<string, string>;
 }
 
-interface ResponceDataInterface{
-  userId:string
-  title:string
-  id:number
-  completed:boolean
+interface ResponceDataInterface {
+  userId: string;
+  title: string;
+  id: number;
+  completed: boolean;
 }
 
-const fetchWrapper = () =>{
+const fetchWrapper = <T>(params: RequestParamsInterface): Promise<T> => {
+  // console.log(params);
+  return fetch(params.url, {
+    method: "GET",
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .catch((err) => {
+      console.error(err.message);
+    });
+};
 
-}
-
-fetchWrapper<ResponceDataInterface>()
+const requestParams: RequestParamsInterface = {
+  method: "GET",
+  url: "https://jsonplaceholder.typicode.com/todos/1",
+};
+fetchWrapper<ResponceDataInterface>(requestParams)
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((err) => {
+    console.log(err.message);
+  });
 
 // 4. **Async Iterator**:
 //    Develop an asynchronous iterator that asynchronously fetches data from a remote source in chunks and iterates over the fetched data.
