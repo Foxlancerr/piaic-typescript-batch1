@@ -1,3 +1,4 @@
+"use strict";
 /**
  @param {Question 18}
 
@@ -22,27 +23,18 @@
 
 • Sort to change your array so it’s stored in reverse alphabetical order. Print the list to show that its order has changed.
  */
-var __spreadArray = (this && this.__spreadArray) || function (to, from, pack) {
-    if (pack || arguments.length === 2) for (var i = 0, l = from.length, ar; i < l; i++) {
-        if (ar || !(i in from)) {
-            if (!ar) ar = Array.prototype.slice.call(from, 0, i);
-            ar[i] = from[i];
-        }
-    }
-    return to.concat(ar || Array.prototype.slice.call(from));
-};
-var cities = ["Peshawar", "Lahour", "Islamabad", "Karachi", "Multan"];
+let cities = ["Peshawar", "Lahour", "Islamabad", "Karachi", "Multan"];
 console.log(cities);
-var shallowCopy = __spreadArray([], cities, true);
+let shallowCopy = [...cities];
 shallowCopy.sort();
 console.log(shallowCopy);
 console.log(cities);
-shallowCopy.sort(function (a, b) { return b.localeCompare(a); });
+shallowCopy.sort((a, b) => b.localeCompare(a));
 console.log(shallowCopy);
 console.log(cities);
 shallowCopy.sort();
 console.log(shallowCopy);
 console.log(cities);
-shallowCopy.sort(function (a, b) { return a.localeCompare(b); });
+shallowCopy.sort((a, b) => a.localeCompare(b));
 console.log(shallowCopy);
 console.log(cities);

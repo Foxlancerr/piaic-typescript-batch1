@@ -6,34 +6,34 @@
 // The fill() method returns an array by filling all elements with a specified value.
 // arr.fill(value, startIndex, endIndex)
 // defining an array
-var fruits = ["Apple", "Banana", "Grape"];
+// var fruits = ["Apple", "Banana", "Grape"];
 ``;
 // filling every element of the array with 'Cherry'
-fruits.fill("Cherry");
-console.log(fruits);
+// fruits.fill("Cherry");
+// console.log(fruits);
 // Output:
 // [ 'Cherry', 'Cherry', 'Cherry' ]
 // If start or end is negative, indexes are counted backwards.
-let rank = [8, 9, 3, 7];
+// let rank = [8, 9, 3, 7];
 // on passing negative index, counting starts from back
-rank.fill(100, -2);
-console.log(rank);
+// rank.fill(100, -2);
+// console.log(rank)
 // Since fill() is a mutator method, it changes the array itself (not a copy) and returns it.
 /**
  *  @param {Sort array method}
  * ***********************************************************************
  * */
 // sorted Numbers
-const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
-fruit.sort();
+// const fruit: number[] = [8, 2, 6, 3, 1, 7, 5, 4];
+// fruit.sort();
 // console.log(fruit[fruit.length - 1]);
 // the sort function also can take a callback function
 // decending order
-fruit.sort((a, b) => b - a);
-console.log(fruit);
+// fruit.sort((a: number, b: number) => b - a);
+// console.log(fruit);
 // Acending order
-fruit.sort((a, b) => a - b);
-console.log(fruit);
+// fruit.sort((a: number, b: number) => a - b);
+// console.log(fruit);
 /**
  *  @param {Reduce arrays methods}
  * ***********************************************************************

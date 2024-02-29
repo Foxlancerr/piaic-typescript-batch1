@@ -1,3 +1,4 @@
+"use strict";
 /**
  * Ordinal Numbers: Ordinal numbers indicate their position in a array, such as 1st or 2nd. Most ordinal numbers end in th, except 1, 2, and 3.
 
@@ -9,8 +10,8 @@
 7th 8th 9th", and each result should be on a separate line.
 
  */
-var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-for (var i = 0; i < numbers.length; i++) {
+let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+for (let i = 0; i < numbers.length; i++) {
     if (numbers[i] === 1) {
         console.log("number: " + numbers[i] + "th");
     }

@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @param {Question 26}
  * Alien Colors #2: Choose a color for an alien as you did in Exercise 25, and write an if-else chain.
@@ -7,7 +8,7 @@
  */
 function alien(color) {
     if (color === "green") {
-        console.log("You just earned 5 points for shooting the alien.");
+        console.log("You just earned 5 points for shooting the green alien.");
     }
     else {
         console.log("You just earned 10 points");

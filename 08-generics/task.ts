@@ -1,3 +1,4 @@
+
 // Sure, here are ten advanced TypeScript questions focusing on generics, promises, asynchronous programming, and object-oriented programming:
 
 // 1. **Generic Data Structure**:
@@ -129,6 +130,7 @@ multiplePromises([
 
 // 3. **Type-safe Fetch**:
 //    Create a wrapper around the `fetch` API that ensures type safety for request parameters and response data.
+/** 
 interface RequestParamsInterface {
   method: string;
   url: string;
@@ -168,8 +170,15 @@ fetchWrapper<ResponceDataInterface>(requestParams)
     console.log(err.message);
   });
 
+*/
+
 // 4. **Async Iterator**:
 //    Develop an asynchronous iterator that asynchronously fetches data from a remote source in chunks and iterates over the fetched data.
+
+
+
+
+// Iterate over the remote data asynchronously
 
 // 5. **Decorator Pattern**:
 //    Implement the decorator pattern using TypeScript classes, where decorators can add behavior to methods or properties of a class dynamically.

@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @param {Question27}
  * Alien Colors #3: Turn your if-else chain from Exercise 5-4 into an if-else chain.
@@ -25,5 +26,5 @@ function alien(color) {
 }
 alien("green");
 alien("yellow");
-alien("greBB");
 alien("red");
+alien("greBB");

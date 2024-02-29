@@ -54,8 +54,8 @@ console.log(names);
  * */
 // sorted Numbers
 const fruit = [8, 2, 6, 3, 1, 7, 5, 4];
-fruit.sort();
-console.log(fruit);
+// fruit.sort();
+console.log(fruit[fruit.length - 1]);
 // the sort function also can take a callback function
 // decending order
 fruit.sort((a, b) => b - a);

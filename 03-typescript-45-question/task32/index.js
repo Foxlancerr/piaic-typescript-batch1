@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @param {question 32}
  * Checking Usernames: Do the following to create a program that simulates how websites ensure that everyone has a unique username.
@@ -9,17 +10,14 @@
 
 • Make sure your comparison is case insensitive. If 'John' has been used, 'JOHN' should not be accepted.
  */
-var current_users = ["John", "Elice", "Smith", "Bob"];
-var new_users = ["smith", "Babuu", "Kami", "John"];
-var _loop_1 = function (i) {
-    var lowercaseNewUser = new_users[i].toLowerCase();
-    if (current_users.some(function (user) { return user.toLowerCase() === lowercaseNewUser; })) {
-        console.log("Username '".concat(new_users[i], "' is not available. Please enter a new username."));
+let current_users = ["John", "Elice", "Smith", "Bob"];
+let new_users = ["smith", "Babuu", "Kami", "John"];
+for (let i = 0; i < new_users.length; i++) {
+    let lowercaseNewUser = new_users[i].toLowerCase();
+    if (current_users.some((user) => user.toLowerCase() === lowercaseNewUser)) {
+        console.log(`Username '${new_users[i]}' is not available. Please enter a new username.`);
     }
     else {
-        console.log("Congratulations! Username '".concat(new_users[i], "' is available."));
+        console.log(`Congratulations! Username '${new_users[i]}' is available.`);
     }
-};
-for (var i = 0; i < new_users.length; i++) {
-    _loop_1(i);
 }
