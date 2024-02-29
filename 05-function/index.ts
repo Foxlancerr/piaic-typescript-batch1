@@ -138,8 +138,10 @@ const mutateArray1: IMutateArray = (nums, callback) => {
   return nums.map(callback);
 };
 
-console.log(
-  mutateArray1([1, 2, 3, 4, 5], (v) => {
-    return v * 50;
-  })
-);
+// console.log(
+//   mutateArray1([1, 2, 3, 4, 5], (v) => {
+//     return v * 50;
+//   })
+// );
+
+
